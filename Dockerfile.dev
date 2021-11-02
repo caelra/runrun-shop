@@ -1,0 +1,19 @@
+# syntax=docker/dockerfile:1
+FROM ruby:3.0.1-alpine
+
+ENV TZ=America/Monterrey
+
+RUN apk update -qq && apk add -v build-base libsodium postgresql-dev dcron
+RUN apk add --update git cmake less
+RUN apk add --update tzdata
+
+RUN ln -sn /usr/share/zoneinfo/${TZ} /etc/localtime && echo ${TZ} > /etc/timezone
+RUN rm -rf /tmp/*
+RUN rm -rf /var/lib/apt/lists/*
+ENV RAILS_ENV development
+
+WORKDIR /app
+COPY Gemfile /app/Gemfile
+COPY Gemfile.lock /app/Gemfile.lock
+RUN gem install bundler:2.2.28
+RUN bundle install

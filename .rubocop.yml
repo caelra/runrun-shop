@@ -1,0 +1,10 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - 'lib/tasks/**/*'
+Lint/MissingSuper:
+  Exclude:
+    - 'app/services/**/*'
