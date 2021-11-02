@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Car model:
+  = @dealership_car.car.model
+p
+  strong Dealership model:
+  = @dealership_car.dealership.name
+
+=> link_to 'Edit', edit_dealership_path(@dealership_car)
+'|
+=< link_to 'Back', dealership_cars_path

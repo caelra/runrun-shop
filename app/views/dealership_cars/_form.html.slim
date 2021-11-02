@@ -1,0 +1,15 @@
+= form_for @dealership_car do |f|
+  - if @dealership_car.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@dealership_car.errors.count, 'error')} prohibited this dealership_car from being saved:"
+      ul
+        - @dealership_car.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :dealership_id
+    = f.collection_select :dealership_id, Dealership.all , :id, :name, label: "Dealerships" , include_blank: false
+  .field
+    = f.label :car_id
+    = f.collection_select :car_id, Car.all , :id, :model, label: "Cars" , include_blank: false
+  .actions = f.submit
