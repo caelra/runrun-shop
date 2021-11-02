@@ -25,10 +25,10 @@ bundle exec rspec
 
 user:
 
-    - email: user@mail.com
-    - password: 123456
+    email: user@mail.com
+    password: 123456
 
 admin:
 
-    - email: admin@mail.com
-    - password: 123456
+    email: admin@mail.com
+    password: 123456
