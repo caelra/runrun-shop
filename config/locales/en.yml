@@ -31,3 +31,5 @@
 
 en:
   hello: "Hello world"
+  session_successful: Session succesfuly created!
+  session_error: Invalid Email or Password :(
