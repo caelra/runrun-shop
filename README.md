@@ -24,9 +24,11 @@ bundle exec rspec
 # Test users credentials
 
 user:
+
     - email: user@mail.com
     - password: 123456
 
 admin:
+
     - email: admin@mail.com
     - password: 123456
