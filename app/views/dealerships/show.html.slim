@@ -1,0 +1,31 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @dealership.name
+
+p
+  strong Cars
+
+table
+  thead
+    tr
+      th Model
+      th Price
+      th Initial Price
+      th
+
+  tbody
+    - @dealership.cars.each do |car|
+      tr
+        td = car.model
+        td = car.price
+        td = car.initial_price
+        td = link_to 'Show', car
+        td = link_to 'Edit', edit_car_path(car)
+
+br
+
+=> link_to 'Edit', edit_dealership_path(@dealership)
+'|
+=< link_to 'Back', dealerships_path

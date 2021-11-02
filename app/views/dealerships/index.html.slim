@@ -1,0 +1,21 @@
+h1 Listing dealerships
+
+table
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @dealerships.each do |dealership|
+      tr
+        td = dealership.name
+        td = link_to 'Show', dealership
+        td = link_to 'Edit', edit_dealership_path(dealership)
+        td = link_to 'Destroy', dealership, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Dealership', new_dealership_path
