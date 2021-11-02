@@ -1,0 +1,26 @@
+h1 Inventory
+
+table
+  thead
+    tr
+      th Model
+      th Price
+      th Dealership
+      th
+      th
+      th
+
+  tbody
+    - @object_collection.each do |object|
+      tr
+        td = object.car.model
+        td = object.car.price
+        td = object.dealership.name
+        - if super_user?
+          td = link_to 'Show', object
+          td = link_to 'Edit', edit_dealership_car_path(object)
+
+br
+
+- if super_user?
+  = link_to 'New Dealership', new_dealership_path
