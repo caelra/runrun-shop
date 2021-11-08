@@ -5,6 +5,7 @@ table
     tr
       th Car model
       th Dealership model
+      th Price
       th
       th
       th
@@ -14,6 +15,7 @@ table
       tr
         td = dealership_car.car.model
         td = dealership_car.dealership.name
+        td = dealership_car.price
         td = link_to 'Show', dealership_car
         td = link_to 'Edit', edit_dealership_car_path(dealership_car)
         td = link_to 'Destroy', dealership_car, data: { confirm: 'Are you sure?' }, method: :delete

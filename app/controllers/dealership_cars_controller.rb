@@ -12,7 +12,7 @@ class DealershipCarsController < ApplicationController
   before_action :set_dealership_car, only: %i[show edit update destroy]
 
   def index
-    @dealership_cars = DealershipCar.all
+    @dealership_cars = DealershipCar.price_descending
   end
 
   def show; end
@@ -34,7 +34,7 @@ class DealershipCarsController < ApplicationController
   end
 
   def update
-    if @dealership_car.update(dealership_params)
+    if @dealership_car.update(dealership_car_params)
       redirect_to @dealership_car, notice: 'DealershipCar was successfully updated.'
     else
       render :edit, notice: 'Something happened.'
@@ -55,6 +55,6 @@ class DealershipCarsController < ApplicationController
   end
 
   def dealership_car_params
-    params.require(:dealership_car).permit(:dealership_id, :car_id)
+    params.require(:dealership_car).permit(:dealership_id, :car_id, :price)
   end
 end

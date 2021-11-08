@@ -5,6 +5,7 @@
 # Table name: dealership_cars
 #
 #  id            :bigint           not null, primary key
+#  price         :decimal(, )
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  car_id        :bigint           not null
@@ -20,7 +21,12 @@
 #  fk_rails_...  (car_id => cars.id)
 #  fk_rails_...  (dealership_id => dealerships.id)
 #
+
 class DealershipCar < ApplicationRecord
   belongs_to :dealership
   belongs_to :car
+
+  validates :price, presence: true
+
+  scope :price_descending, -> { order(price: :desc) }
 end

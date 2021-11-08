@@ -2,7 +2,10 @@ p#notice = notice
 
 p
   strong Name:
-  = @car.name
+  = @car.model
+p
+  strong Name:
+  = @car.price
 
 => link_to 'Edit', edit_car_path(@car)
 '|
